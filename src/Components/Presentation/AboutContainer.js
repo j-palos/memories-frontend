@@ -5,26 +5,31 @@ const ip = "http://192.168.1.163";
 
 export default class AboutContainer extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
-            data: {}
+            data: [],
+            loaded: false
         }
     }
 
-    componentDidMount(){
+    componentDidMount()
+    {
+        let objects = [];
         fetch(`${ip}/date`).then(results => {
             return results.json();
         })
             .then(data => {
-            // console.log(dates);
-            //         debugger;
-        this.setState({
-            dates: data,
-
-        })
-            }
-        )
+                    let numObjects = data.num_results;
+                    for(let i = 0; i < numObjects; i++){
+                        objects.push(data.objects[i]);
+                    }
+                    this.setState({
+                        dates: objects,
+                        loaded: true
+                    })
+                }
+            )
     }
 
     render() {

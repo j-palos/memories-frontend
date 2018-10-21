@@ -1,13 +1,49 @@
 import React, {Component} from 'react';
-import {Row} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
+import MemoriesTable from "../MemoriesTable";
 
+const ip = "http://dateapi.sabrinaherrero.com";
 export default class MemoriesContainer extends Component {
 
+
+    constructor() {
+        super();
+        this.state = {
+            dates: [],
+            loaded: false
+        }
+    }
+
+    componentDidMount()
+    {
+        let objects = [];
+        fetch(`${ip}/date`).then(results => {
+            return results.json();
+        })
+            .then(data => {
+                    let numObjects = data.num_results;
+                    for(let i = 0; i < numObjects; i++){
+                        objects.push(data.objects[i]);
+                    }
+                    this.setState({
+                        dates: objects,
+                        loaded: true
+                    })
+                }
+            )
+    }
 
     render() {
         return (
             <Row>
-                Memories page here
+                <Col sm={2}>
+                </Col>
+                <Col>
+                    <h2 className={'text-center '}>Possible Date Ideas</h2>
+                    {this.state.loaded && <MemoriesTable dates={this.state.dates} />}
+                </Col>
+                <Col sm={2}>
+                </Col>
             </Row>
         );
     }

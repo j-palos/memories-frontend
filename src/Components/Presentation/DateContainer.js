@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Row,Col} from 'reactstrap';
-import Table from '../Table'
-const ip = "http://192.168.1.163";
+import DatesTable from '../DatesTable'
+const ip = "http://dateapi.sabrinaherrero.com";
 
 export default class DateContainer extends Component {
 
@@ -24,8 +24,6 @@ export default class DateContainer extends Component {
                         for(let i = 0; i < numObjects; i++){
                             objects.push(data.objects[i]);
                         }
-
-                        // debugger;
                         this.setState({
                             dates: objects,
                             loaded: true
@@ -42,7 +40,7 @@ export default class DateContainer extends Component {
                     </Col>
                     <Col>
                         <h2 className={'text-center '}>Possible Date Ideas</h2>
-                        {this.state.loaded && <Table dates={this.state.dates} tableName={'Dates'}/>}
+                        {this.state.loaded && <DatesTable dates={this.state.dates} name={'Dates'}/>}
                     </Col>
                     <Col sm={2}>
                     </Col>

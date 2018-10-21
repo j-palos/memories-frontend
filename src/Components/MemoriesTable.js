@@ -4,24 +4,23 @@ import {Table} from 'reactstrap';
 
 export default function (props) {
     let dates = props.dates;
-    let tableName = props.name;
-    let colNames = props.colNames;
 
     return (
         <Table hover bordered>
             <thead>
             <tr>
-            <th>Title</th>
-            <th>Description</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
             </tr>
             </thead>
             <tbody>
             {dates.map((date) => {
-                // debugger;
                 return (
                     <tr key={date.date_id}>
                         <td>{date.title}</td>
                         <td>{date.description}</td>
+                        <td>{date.date}</td>
                     </tr>
                 )
             })}
