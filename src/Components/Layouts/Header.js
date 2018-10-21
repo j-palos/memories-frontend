@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink} from 'reactstrap';
-import { NavLink as RRNavLink } from 'react-router-dom';
+import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
+import {NavLink as RRNavLink} from 'react-router-dom';
 
 
 export default class Example extends React.Component {
@@ -43,6 +36,9 @@ export default class Example extends React.Component {
                             </NavItem>
                             <NavItem>
                             <NavLink to="/memories" activeClassName="active" tag={RRNavLink}>Memories</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink to="/create" activeClassName="active" tag={RRNavLink}>Add New Idea</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
