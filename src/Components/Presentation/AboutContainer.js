@@ -1,14 +1,14 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {Row} from 'reactstrap';
 
-const ip = "http://192.168.1.163";
+const ip = "http://dateapi.sabrinaherrero.com";
 
 export default class AboutContainer extends Component {
 
     constructor() {
         super();
         this.state = {
-            data: [],
+            dates: [],
             loaded: false
         }
     }

@@ -1,7 +1,13 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import {Header, Footer} from "../Components/Layouts";
-import {LandingPage, MemoriesContainer, AboutContainer, DateContainer} from "../Components/Presentation/";
+import {Route, Switch} from "react-router-dom";
+import {Header} from "../Components/Layouts";
+import {
+    AboutContainer,
+    DateContainer,
+    LandingPage,
+    MemoriesContainer,
+    NewDateContainer
+} from "../Components/Presentation/";
 import {Container} from 'reactstrap';
 
 class ReactRouter extends React.Component {
@@ -15,6 +21,7 @@ class ReactRouter extends React.Component {
                     <Route exact path="/about" component={AboutContainer}/>
                     <Route exact path={"/dates"} component={DateContainer}/>
                     <Route exact path={"/memories"} component={MemoriesContainer}/>
+                        <Route exact path={'/create'} component={NewDateContainer}/>
                     </Switch>
                 </Container>
                 {/*<Footer />*/}
