@@ -19,8 +19,8 @@ export default class Example extends React.Component {
     }
     render() {
         return (
-            <div>
-                <Navbar color="light" light expand="md">
+
+            <Navbar color="light" light expand="md">
                     <NavbarBrand>Us</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
@@ -43,7 +43,6 @@ export default class Example extends React.Component {
                         </Nav>
                     </Collapse>
                 </Navbar>
-            </div>
         );
     }
 }
