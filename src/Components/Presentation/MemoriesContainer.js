@@ -16,17 +16,20 @@ export default class MemoriesContainer extends Component {
 
     componentDidMount()
     {
-        let objects = [];
+        let dates = [];
         fetch(`${ip}/date?q={"filters":[{"or":[{"name":"completed","op":"eq","val":true}]}]} `).then(results => {
             return results.json();
         })
             .then(data => {
-                    let numObjects = data.num_results;
-                    for(let i = 0; i < numObjects; i++){
-                        objects.push(data.objects[i]);
+                //
+                let objects = data.objects;
+                debugger;
+                for (let i = 0; i < Object.keys(objects).length; i++) {
+                    debugger;
+                    dates.push(objects[i]);
                     }
                     this.setState({
-                        dates: objects,
+                        dates: dates,
                         loaded: true
                     })
                 }
