@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {Row,Col} from 'reactstrap';
+import {Col, Row} from 'reactstrap';
 import DatesTable from '../DatesTable'
+
 const ip = "http://dateapi.sabrinaherrero.com";
 
 export default class DateContainer extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             dates: [],
             loaded: false,
@@ -16,7 +17,7 @@ export default class DateContainer extends Component {
         componentDidMount()
         {
             let objects = [];
-            fetch(`${ip}/date`).then(results => {
+            fetch(`${ip}/date?q={"filters":[{"or":[{"name":"completed","op":"eq","val":false}]}]} `).then(results => {
                 return results.json();
             })
                 .then(data => {

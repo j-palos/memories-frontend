@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Row, Col} from 'reactstrap';
+import {Col, Row} from 'reactstrap';
 import MemoriesTable from "../MemoriesTable";
 
 const ip = "http://dateapi.sabrinaherrero.com";
@@ -17,7 +17,7 @@ export default class MemoriesContainer extends Component {
     componentDidMount()
     {
         let objects = [];
-        fetch(`${ip}/date`).then(results => {
+        fetch(`${ip}/date?q={"filters":[{"or":[{"name":"completed","op":"eq","val":true}]}]} `).then(results => {
             return results.json();
         })
             .then(data => {
