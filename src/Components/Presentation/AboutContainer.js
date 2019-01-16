@@ -8,7 +8,9 @@ export default class AboutContainer extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {selectedFile: null, loaded: 0,}
+        this.state = {
+            selectedFile: null, loaded: 0, formStuff: {}
+        }
     }
 
     fileChangedHandler = (event) => {
@@ -46,6 +48,16 @@ export default class AboutContainer extends Component {
             console.log('Error: ', error);
         };
         // }
+        fetch(`${ip}/upload`, {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                title: 'test pic',
+                body: reader.result,
+            })
+        }).then((data) => {
+            console.log(data);
+        });
 
         // debugger;
     };
