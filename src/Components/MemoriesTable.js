@@ -1,35 +1,32 @@
-import React from 'react';
-import {Table} from 'reactstrap';
+import React from "react";
+import {Table} from "reactstrap";
 
+export default function(props) {
+  let dates = props.dates;
 
-export default function (props) {
-    let dates = props.dates;
-
-    return (
-        <Table hover bordered>
-            <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Date</th>
+  return (
+    <Table hover bordered>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {dates.map(date => {
+          return (
+            <tr key={date.date_id}>
+              <td>{date.title}</td>
+              <td>{date.description}</td>
+              <td>{date.date}</td>
             </tr>
-            </thead>
-            <tbody>
-            {dates.map((date) => {
-                return (
-                    <tr key={date.date_id}>
-                        <td>{date.title}</td>
-                        <td>{date.description}</td>
-                        <td>{date.date}</td>
-                    </tr>
-                )
-            })}
-            </tbody>
-        </Table>
-    )
+          );
+        })}
+      </tbody>
+    </Table>
+  );
 }
-
-
 
 // "completed": false,
 //     "date": null,
