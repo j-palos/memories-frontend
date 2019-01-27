@@ -54,10 +54,6 @@ export default class NewDateContainer extends Component {
         });
     }
 
-    //
-    // Access Key ID: AKIAIU77EOE3N7XYQXDA
-    // Secret Access Key: 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
-
     render() {
         const {title, description, completed, date} = this.state;
         return (
