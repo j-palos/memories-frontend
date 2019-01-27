@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import {Col, Row} from "reactstrap";
 
-const ip = "http://dateapi.sabrinaherrero.com";
-
+// const ip = "http://dateapi.sabrinaherrero.com";
+// const ip = "http://dateapi.sabrinaherrero.com";
+const ip = "http://192.168.1.68";
 export default class AboutContainer extends Component {
   constructor(props) {
     super(props);
@@ -38,29 +39,40 @@ export default class AboutContainer extends Component {
     // console.log(Object.keys(files).length);
     // if (Object.keys(files).length > 0) {
     //     console.log('heere');
-    let reader = new FileReader();
+    var reader = new FileReader();
     reader.readAsDataURL(file);
     // debugger;
     reader.onload = function() {
-      console.log(reader.result);
+      // g = reader.result.toString();
+      // debugger;
+      // console.log(g);
+      // console.log(reader.result);
+      let data = reader.result.toString();
+      // let result = type;
+      // console.log(data);
+      // debugger;
+      let splitd = data.split("data:", 2);
+      // debugger;
+      let type = splitd[1].split(";", 2)[0];
+      // debugger;
+      let result = reader.result.split(",", 2)[1];
+      // debugger;
+      fetch(`${ip}/image`, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          image: result,
+          type: type,
+          date_id: 10,
+          description: "test picture"
+        })
+      }).then(data => {
+        console.log(data);
+      });
     };
     reader.onerror = function(error) {
       console.log("Error: ", error);
     };
-    // }
-    fetch(`${ip}/image`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        image: reader.result,
-        date_id: 10,
-        description: "test picture"
-      })
-    }).then(data => {
-      console.log(data);
-    });
-
-    // debugger;
   };
 
   render() {

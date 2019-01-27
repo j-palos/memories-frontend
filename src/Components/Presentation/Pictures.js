@@ -3,7 +3,8 @@ import {Col, Row} from "reactstrap";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 
-const ip = "http://dateapi.sabrinaherrero.com";
+// const ip = "http://dateapi.sabrinaherrero.com";
+const ip = "http://192.168.1.68";
 
 export default class Pictures extends Component {
   constructor(props) {
