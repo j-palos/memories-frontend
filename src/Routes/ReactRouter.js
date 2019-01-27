@@ -9,6 +9,7 @@ import {
     NewDateContainer
 } from "../Components/Presentation/";
 import {Container} from 'reactstrap';
+import Pictures from "../Components/Presentation/Pictures";
 
 class ReactRouter extends React.Component {
     render() {
@@ -22,6 +23,7 @@ class ReactRouter extends React.Component {
                     <Route exact path={"/dates"} component={DateContainer}/>
                     <Route exact path={"/memories"} component={MemoriesContainer}/>
                         <Route exact path={'/create'} component={NewDateContainer}/>
+                        <Route exact path={'/pictures'} component={Pictures}/>
                     </Switch>
                 </Container>
                 {/*<Footer />*/}

@@ -48,12 +48,13 @@ export default class AboutContainer extends Component {
             console.log('Error: ', error);
         };
         // }
-        fetch(`${ip}/upload`, {
+        fetch(`${ip}/image`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                title: 'test pic',
-                body: reader.result,
+                image: reader.result,
+                date_id: 10,
+                description: 'test picture',
             })
         }).then((data) => {
             console.log(data);
