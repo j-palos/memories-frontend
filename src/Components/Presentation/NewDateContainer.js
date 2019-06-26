@@ -26,11 +26,6 @@ export default class NewDateContainer extends Component {
     this.setState({ validate });
   }
 
-  // handleChange (event) {
-  //     debugger;
-  //     this.setState( {[event.target.name]: event.target.value} )
-  // }
-
   submitForm(e) {
     e.preventDefault();
     const data = this.state;
@@ -48,7 +43,6 @@ export default class NewDateContainer extends Component {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
-
     this.setState({
       [name]: value
     });
@@ -125,13 +119,4 @@ export default class NewDateContainer extends Component {
     );
   }
 }
-//
-// <Label check for="Complete">
-//     <Input
-//         type="checkbox"
-//         name="completed"
-//         id="completed"
-//         value={ description }
-//         onChange={ (e) => this.handleChange(e) }
-//     />{' '}
-// </Label>
+

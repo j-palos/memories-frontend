@@ -37,9 +37,6 @@ export default class Pictures extends Component {
   }
 
   handleDeleteClick(e) {
-    debugger;
-
-    // alert('are you sure you want to delete');
     fetch(`${ip}/date/${e.target.value}`, {
       method: "delete",
       headers: { "Content-Type": "application/json" }
@@ -49,15 +46,11 @@ export default class Pictures extends Component {
     console.log("Click happened");
   }
 
-  // componentDidUpdate(prevProps, prevState, snapshot) {
-  // }
-
   render() {
     return (
       <Row>
         <Col>
           <h2 className={"text-center "}>Pictures</h2>
-
           <br />
           {this.state.loaded && (
             <GridList cellHeight={160} cols={3}>
